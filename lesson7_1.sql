@@ -19,7 +19,11 @@ SELECT id, name FROM users WHERE id = ANY (SELECT user_id FROM orders);
 
 --#2
 
-SELECT name, (SELECT name FROM catalogs c2 WHERE c2.id = p2.catalog_id) AS 'Catalog name' FROM products p2 WHERE name LIKE 'AMD%';
+SELECT p.id as product_id, p.name as product_name, c.name as catalogs_name
+FROM products p
+LEFT JOIN catalogs c ON p.cat_id=c.id
+WHERE 1
+ORDER BY p.cat_id, p.name
 
 
 
