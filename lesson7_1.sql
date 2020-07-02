@@ -23,7 +23,5 @@ SELECT p.id as product_id, p.name as product_name, c.name as catalogs_name
 FROM products p
 LEFT JOIN catalogs c ON p.cat_id=c.id
 WHERE 1
-ORDER BY p.cat_id, p.name
-
-
+ORDER BY p.cat_id, p.name;
 
